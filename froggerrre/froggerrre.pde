@@ -16,12 +16,27 @@ tob.move();
 tob.display();
 brtb.move();
 brtb.display();
+if(intersects(bob)|intersects(tob)|intersects(brtb)){
+  Xposition=200;
+  Yposition=350;
+  
 }
+if(getY()==50){
+  print("winner");
+  fill(136,0,85);
+  rect(200,200,100,100);
+  
+}
+intersects(tob);
+intersects(brtb);
+}
+ 
 void keyPressed()
 {
   if(key == CODED){
       if(keyCode == UP)
       {
+        print(Yposition);
       //Frog Y position goes up
       Yposition-=25;
       }
@@ -57,6 +72,15 @@ Yposition=350;
 if(Yposition<50){
 Yposition=50;
 }}
+boolean intersects(Car car) {
+if ((Yposition > car.getY() && Yposition < car.getY()+50) && (Xposition > car.getX() && Xposition < car.getX()+car.getSize()))
+          return true;
+    else 
+        return false;
+}
+
+
+
 class Car{ 
 int size;
 int speed;
@@ -76,14 +100,31 @@ x-=speed;
 if(x<-size){
  x=400; 
 }
+
 else if(x>400){
   x=0;
 }
-  
-  
-  
 }
+int getX(){
+  return x;
 }
+int getY(){
+  return y;
+}
+int getSize(){
+  return size;
+}
+
+
+
+
+}
+
+  
+  
+  
+
+
 
 
 
