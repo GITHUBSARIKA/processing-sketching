@@ -7,6 +7,14 @@ double birdYVelocity = 5;
 double gravity =0.5;
 int pipeXposition=300;
 int pipeYposition=600; 
+int pipe2=300;
+int pipe1=600;
+int gap=200;
+int pipe1height=500;
+int pipe2height;
+//int pipeXpositiontwo=300;
+//int pipeYpositiontwo=600; 
+
  void draw(){
   background(67,245,148);
   fill(255,0,141);
@@ -16,8 +24,10 @@ y+=birdYVelocity;
 y+=gravity;
 fill(195,10,247);
 rect(pipeXposition,pipeYposition,100,1000);
- //fill(255,3,150);
-//rect(500,800,100,500);
+fill(255,3,150);
+
+rect(pipeXposition,0,100,pipe2height);
+pipe2height=height-gap-pipe1height;
 //fill(15,250,189);
 //rect(100,400,100,700);
 pipeXposition-=5;
@@ -31,7 +41,7 @@ if(pipeXposition<=0){
  if(intersects(x,y,pipeXposition,pipeYposition,100)){
    exit();
  }
-
+ 
 
 if(mousePressed){
   mousePressed();
